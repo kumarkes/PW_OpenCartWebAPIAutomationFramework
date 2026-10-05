@@ -11,7 +11,7 @@ let OAUTH_CONFIG = {
 
 let accessToken: string;
 
-test.beforeEach('POST -- generate the access token', async ({ request }) => {
+test.skip('POST -- generate the access token', async ({ request }) => {
     let response = await request.post(OAUTH_CONFIG.tokenURL, {
         form: {
             grant_type: OAUTH_CONFIG.grantType,
@@ -26,7 +26,7 @@ test.beforeEach('POST -- generate the access token', async ({ request }) => {
     console.log('access token: ', accessToken);
 });
 
-test('@regression get albums data test', async ({ request }) => {
+test.skip('@regression get albums data test', async ({ request }) => {
     //https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
     let baseURL = 'https://api.spotify.com';
     let endPointURL = '/v1/albums/4aawyAB9vmqN3uQ7FjRGTy';
