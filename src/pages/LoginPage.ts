@@ -16,17 +16,13 @@ export class LoginPage extends BasePage {
         this.emailId = page.getByRole('textbox', { name: 'E-Mail Address' });
         this.password = page.getByRole('textbox', { name: 'Password' });
         this.loginBtn = page.getByRole('button', { name: 'Login' });
-        this.forgottenPasswordLink = page.getByRole('link', { name: 'Forgotten Password' }).first();
+        this.forgottenPasswordLink = page.getByRole('link', { name: 'Forgotten Password123' }).first();
         this.loginErrorMessage = page.locator('.alert.alert-danger.alert-dismissible');
     }
 
     //3. public page actions(methods) / behaviour: Encapsulation
     async goToLoginPage(): Promise<void> {
         await this.page.goto('opencart/index.php?route=account/login');
-    }
-
-    async getLoginPageTitle(): Promise<string> {
-        return await this.page.title();
     }
 
     async isForgottenPwdLinkExist(): Promise<boolean> {
@@ -41,8 +37,9 @@ export class LoginPage extends BasePage {
     }
 
     async isInvalidLoginErrorDisplayed(): Promise<boolean> {
+        await this.loginErrorMessage.waitFor({ state: 'visible' });
         return await this.loginErrorMessage.isVisible();
-        
+
     }
 
 }
