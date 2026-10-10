@@ -1,0 +1,3 @@
+app user creds: keshavpadole06@gmail.com - abcd1234
+search key:  samsung
+product name:  Samsung Galaxy Tab 10.1
